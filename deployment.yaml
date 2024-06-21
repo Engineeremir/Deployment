@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myrepositoryapp
+spec:
+  selector:
+    matchLabels:
+      app: myrepositoryapp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: myrepositoryapp
+    spec:
+      containers:
+      - name: myrepository-c1
+        image: emirhankalem/myrepository:dev
+        ports:
+        - containerPort: 8080
